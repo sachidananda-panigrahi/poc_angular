@@ -5,5 +5,5 @@ angular.module('ContactsApp', ['ngRoute'])
 			controller: 'ListController',
 			templateUrl: 'views/list.html'
 		});
-		$locationProvider.html5mode(true);
+		$locationProvider.html5Mode(true);
 })
