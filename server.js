@@ -1,10 +1,18 @@
-var express = require('express');
-var app = express();
-var api = require(__dirname +'/public/api');
+var express = require('express'),
+    api     = require('./api'),
+    users   = require('./accounts'),
+    app     = express();
 
-app.use(express.static('./public'))
-    .use('/api',api)
-    .get('*',function(req,res){
-        res.sendfile(__dirname +'/public/main.html');
-    }).listen(9000);
-console.log("The server is running on port 9000");
+app
+    .use(express.static('./public'))
+    .use(users)
+    .use('/api', api)
+    .get('*', function (req, res) {
+        if (!req.user) {
+            res.redirect('/login');
+        } else {
+            res.sendFile('public/main.html', {"root": "."});
+        }
+    })
+    .listen(3000);
+console.log("Server is listing on the port 3000");
