@@ -1,8 +1,18 @@
-<h2>New Contact</h2>
-<form name="newContact" novalidate class="form-horizontal">
-    <div class="row form-group">
-        <div class="col-sm-offset-2">
-            <button class="btn btn-primary" ng-click="save()" > Create New Contact</button>
+<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h2>New Contact</h2>
+            <form name="newContact" class="form-horizontal" novalidate>
+                <div class="form-group" ng-repeat="(contactfieldskey, contactfieldsvalue) in contact">
+                    <input name="{{contactfieldskey}}" type="{{contactfieldsvalue[1]}}" class="form-control" required/>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-offset-2">
+                        <button class="btn btn-primary" ng-click="save()" > Create New Contact</button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
-</form>
+</div>

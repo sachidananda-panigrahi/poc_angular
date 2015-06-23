@@ -32,7 +32,7 @@ angular.module('ContactsApp')
                 $scope.$broadcast('record:invalid');
             }else{
                 $scope.contact.$save();
-                $location.url('/contact')
+                $location.url('/contacts')
             }
         }
     });
